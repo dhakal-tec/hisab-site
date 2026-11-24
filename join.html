@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join a group on hisab</title>
+  <meta name="description" content="You've been invited to split costs in a hisab group.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@700;800&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <a class="brand" href="./">hisab</a>
+    <h1>You're invited to a group</h1>
+    <p class="updated">Split shared costs and see who owes what, in the hisab app.</p>
+
+    <div id="invite" hidden>
+      <div class="code-card">
+        <p class="code-label">Invite code</p>
+        <p class="code" id="code"></p>
+        <button type="button" class="copy" id="copy">Copy code</button>
+      </div>
+
+      <div class="actions">
+        <a class="button primary" id="open" href="#">Open in hisab</a>
+        <a class="button" href="https://play.google.com/store/apps/details?id=com.hisab.android">Get hisab on Google Play</a>
+      </div>
+
+      <h2>New to hisab?</h2>
+      <ol>
+        <li>Install hisab from Google Play.</li>
+        <li>Open it and sign in with Google.</li>
+        <li>Come back to this page and tap <strong>Open in hisab</strong>. Or go to <strong>Splits</strong>, tap <strong>Join with a code</strong> and enter the code above.</li>
+      </ol>
+      <p class="note">hisab is on Android. It isn't on iPhone yet.</p>
+    </div>
+
+    <div id="missing" hidden>
+      <p>This invite link is missing its code. Ask the person who sent it for a new link, or for the 6-character code from their group's Invite screen.</p>
+    </div>
+
+    <footer><a href="privacy.html">Privacy policy</a> · Questions? Email <a href="mailto:hisab.app001@gmail.com">hisab.app001@gmail.com</a></footer>
+  </main>
+  <script>
+    (function () {
+      var raw = new URLSearchParams(location.search).get('code') || '';
+      var code = raw.trim().toUpperCase();
+      if (!/^[A-Z0-9]{6}$/.test(code)) {
+        document.getElementById('missing').hidden = false;
+        return;
+      }
+      document.getElementById('invite').hidden = false;
+      document.getElementById('code').textContent = code;
+      document.title = 'Join a group on hisab (' + code + ')';
+
+      var play = 'https://play.google.com/store/apps/details?id=com.hisab.android';
+      var open = document.getElementById('open');
+      if (/android/i.test(navigator.userAgent)) {
+        // Opens the app if installed, otherwise Google Play.
+        open.href = 'intent://join-group?code=' + code +
+          '#Intent;scheme=hisab;package=com.hisab.android;S.browser_fallback_url=' +
+          encodeURIComponent(play) + ';end';
+      } else {
+        open.hidden = true;
+      }
+
+      var copy = document.getElementById('copy');
+      copy.addEventListener('click', function () {
+        if (!navigator.clipboard) return;
+        navigator.clipboard.writeText(code).then(function () {
+          copy.textContent = 'Copied';
+          setTimeout(function () { copy.textContent = 'Copy code'; }, 2000);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

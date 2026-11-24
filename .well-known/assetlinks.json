@@ -1,0 +1,15 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hisab.android",
+      "sha256_cert_fingerprints": [
+        "C4:87:77:BC:92:81:93:83:6F:5A:83:50:75:30:A5:E3:0E:22:38:86:03:70:CF:FD:A3:C3:67:D6:FA:8A:55:A7",
+        "D5:1D:D6:3A:11:E8:DE:E3:C8:F6:DC:8C:29:EA:38:8B:68:32:F5:3E:79:47:DF:4C:A1:7A:5D:ED:FB:C7:48:2E",
+        "FF:52:42:65:CF:60:79:87:E5:2C:65:CB:74:50:3B:6E:F3:79:D4:0B:8C:A0:AA:D4:4A:97:96:7E:8A:7A:81:D7",
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
+      ]
+    }
+  }
+]
