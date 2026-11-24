@@ -1,19 +1,24 @@
 :root {
-  --bg: #f1f2f8;
+  /* Same palette as the hisab app: warm paper, warm near-black, ember. */
+  --bg: #faf6f1;
   --surface: #ffffff;
-  --text: #1b1f3b;
-  --muted: #555b7a;
-  --brand: #2b3fa0;
-  --line: #dfe2ee;
+  --text: #1c1815;
+  --muted: #6b6055;
+  --brand: #b8491a;      /* links and small highlights */
+  --button: #1c1815;     /* main button, like the app */
+  --on-button: #faf6f1;
+  --line: #e2dcd3;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #12142a;
-    --surface: #1c1f3a;
-    --text: #eef0fa;
-    --muted: #a9aecb;
-    --brand: #9fb0ff;
-    --line: #2e3256;
+    --bg: #1c1815;
+    --surface: #241f1a;
+    --text: #f0ece6;
+    --muted: #a79c8d;
+    --brand: #e8854f;
+    --button: #f0ece6;
+    --on-button: #1c1815;
+    --line: #3a3329;
   }
 }
 
@@ -23,7 +28,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Mukta', system-ui, sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   font-size: 18px;
   line-height: 1.6;
 }
@@ -36,7 +41,7 @@ main {
 
 .brand {
   display: inline-block;
-  font-family: 'Anek Devanagari', 'Mukta', sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   font-weight: 800;
   font-size: 22px;
   color: var(--brand);
@@ -45,7 +50,7 @@ main {
 }
 
 h1 {
-  font-family: 'Anek Devanagari', 'Mukta', sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   font-weight: 800;
   font-size: 40px;
   line-height: 1.15;
@@ -53,7 +58,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Anek Devanagari', 'Mukta', sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 1.25;
@@ -106,7 +111,7 @@ footer {
 }
 .code-label { color: var(--muted); margin: 0; }
 .code {
-  font-family: 'Anek Devanagari', 'Mukta', sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   font-weight: 800;
   font-size: 44px;
   letter-spacing: 0.2em;
@@ -137,5 +142,5 @@ footer {
   font-weight: 600;
   text-decoration: none;
 }
-.button.primary { background: var(--brand); border-color: var(--brand); color: var(--bg); }
+.button.primary { background: var(--button); border-color: var(--button); color: var(--on-button); }
 .note { color: var(--muted); }
